@@ -35,8 +35,7 @@
 <body>
     <div id="card">
         <!-- All you need to put beautiful, interactive 3D content on your site: -->
-        <model-viewer
-            id="lamp"
+        <model-viewer id="lamp"
             src="https://cdn.glitch.com/21710700-a398-4f93-9a6c-eb0810904e74/industrial_lamp.gltf?v=1569485480008"
             ios-src="https://cdn.glitch.com/21710700-a398-4f93-9a6c-eb0810904e74/industrial_floor_lamp.usdz?v=1569485305204"
             alt="Tall Lamp" background-color="#eeeeee" shadow-intensity="1" camera-controls interaction-prompt="auto"
@@ -58,13 +57,21 @@
     <script type="module" src="https://unpkg.com/@google/model-viewer@v0.6.0/dist/model-viewer.js">
 
     </script>
-    <script >
-           (() => {
-    console.log("HERE")
-    const modelViewer = document.querySelector('#lamp');
-    console.log(modelViewer.activateAR)
-  })();
-            </script>
+    <script>
+        (() => {
+            const modelViewer = document.querySelector('#orbit-demo');
+            const orbitCycle = [
+                '45deg 55deg 4m',
+                '-60deg 110deg 2m',
+                modelViewer.cameraOrbit
+            ];
+            setInterval(() => {
+                const currentOrbitIndex = orbitCycle.indexOf(modelViewer.cameraOrbit);
+                modelViewer.cameraOrbit =
+                    orbitCycle[(currentOrbitIndex + 1) % orbitCycle.length];
+            }, 3000);
+        })();
+    </script>
 
     <!-- Loads <model-viewer> for old browsers like IE11: -->
     <script nomodule src="https://unpkg.com/@google/model-viewer@v0.6.0/dist/model-viewer-legacy.js">
