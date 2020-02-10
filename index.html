@@ -41,9 +41,9 @@
       The first augmented reality shop of the web...
       Preview all the objects in AR, see if they fit your room and then buy them :)      
     </h2>
-    
+<!--     
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.js"></script>
-    <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+    <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script> -->
     <hr>
 <div>
   
@@ -89,5 +89,29 @@
           to make it easier for folks to view source and remix -->
     <div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>
     <script src="https://button.glitch.me/button.js"></script>
+    <script type="module" src="https://unpkg.com/@google/model-viewer@v0.6.0/dist/model-viewer.js">
+
+    </script>
+    <script>
+        (() => {
+            console.log("Custom Javascript goes here")
+            const modelViewer = document.querySelector('#lamp');
+            const orbitCycle = [
+                '45deg 55deg 4m',
+                '-60deg 110deg 2m',
+                modelViewer.cameraOrbit
+            ];
+
+            setInterval(() => {
+                const currentOrbitIndex = orbitCycle.indexOf(modelViewer.cameraOrbit);
+                modelViewer.cameraOrbit =
+                    orbitCycle[(currentOrbitIndex + 1) % orbitCycle.length];
+            }, 3000);
+        })();
+    </script>
+
+    <!-- Loads <model-viewer> for old browsers like IE11: -->
+    <script nomodule src="https://unpkg.com/@google/model-viewer@v0.6.0/dist/model-viewer-legacy.js">
+    </script>
   </body>
 </html>
