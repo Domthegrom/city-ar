@@ -58,8 +58,23 @@
     <script type="module" src="https://unpkg.com/@google/model-viewer@v0.6.0/dist/model-viewer.js">
 
     </script>
-    <script src="scene.js">
-           
+    <script >
+           (() => {
+    console.log("HERE")
+    const modelViewer = document.querySelector('#lamp');
+    const orbitCycle = [
+      '45deg 55deg 4m',
+      '-60deg 110deg 2m',
+      modelViewer.cameraOrbit
+    ];
+    console.log(modelViewer.getFieldOfView, "???")
+  
+    setInterval(() => {
+      const currentOrbitIndex = orbitCycle.indexOf(modelViewer.cameraOrbit);
+      modelViewer.cameraOrbit =
+          orbitCycle[(currentOrbitIndex + 1) % orbitCycle.length];
+    }, 3000);
+  })();
             </script>
 
     <!-- Loads <model-viewer> for old browsers like IE11: -->
