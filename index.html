@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Hello!</title>
+
+<head>
+    <title>City AR</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <!-- import the webpage's stylesheet -->
-    <link rel="stylesheet" href="/style.css">
-    
-    <!-- import the webpage's javascript file -->
-    <!-- <script src="/script.js" defer></script> -->
-        <!-- The following libraries and polyfills are recommended to maximize browser support -->
+
+    <link rel="stylesheet" href="demo-styles.css">
+
+    <!-- The following libraries and polyfills are recommended to maximize browser support -->
     <!-- NOTE: you must adjust the paths as appropriate for your project -->
 
     <!-- 🚨 REQUIRED: Web Components polyfill to support Edge and Firefox < 63 -->
@@ -32,63 +30,30 @@
     <!-- 💁 OPTIONAL: The :focus-visible polyfill removes the focus ring for some input types -->
     <script src="https://unpkg.com/focus-visible@5.0.2/dist/focus-visible.js" defer></script>
 
-  </head>  
-  <body>
-    <h1>
-      Welcome to the Skarredshop!
-    </h1>
-    <h2>
-      The first augmented reality shop of the web...
-      Preview all the objects in AR, see if they fit your room and then buy them :)      
-    </h2>
-<!--     
-    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.js"></script>
-    <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script> -->
-    <hr>
-<div>
-  
-  
-    <!--<model-viewer ar src="https://cdn.glitch.com/162a6be2-293d-4554-8610-6011a9f71fef%2FDuck.glb?1557308909817" auto-rotate camera-controls alt="Duck" background-color="#455A64"></model-viewer>-->
-    <h3>
-      CHAIR <!--by Vladimir Ilic-->
-    </h3>
-    <p>
-      <model-viewer ar src="https://cdn.glitch.com/162a6be2-293d-4554-8610-6011a9f71fef%2FChairExp.glb?1557485499409" auto-rotate camera-controls alt="Chair" background-color="#455A64"></model-viewer>
-    </p>
-  
-    <h3>
-      COUCH <!--by Google-->
-    </h3>
-    <p>
-      <model-viewer ar src="https://cdn.glitch.com/162a6be2-293d-4554-8610-6011a9f71fef%2FCouch.glb?1557485797398" auto-rotate camera-controls alt="Couch" background-color="#455A64"></model-viewer>
-    </p>
-    
-    <h3>
-      DUCK
-    </h3>
-    <p>
-      <model-viewer ar src="https://cdn.glitch.com/162a6be2-293d-4554-8610-6011a9f71fef%2FDuck.glb?1557308909817" auto-rotate camera-controls alt="Duck" background-color="#455A64"></model-viewer>
-    </p>      
-  
-    <h3>
-      PERSONAL COMPUTER <!--by Google-->
-    </h3>
-    <p>
-      <model-viewer ar src="https://cdn.glitch.com/162a6be2-293d-4554-8610-6011a9f71fef%2FComputer.glb?1557486053444" auto-rotate camera-controls alt="Personal Computer" background-color="#455A64"></model-viewer>    
-    </p>
-  
-    <h3>
-      ZAKU <!-- by Tipatat Chennavasin-->
-    </h3>
-    <p>
-      <model-viewer ar src="https://cdn.glitch.com/162a6be2-293d-4554-8610-6011a9f71fef%2FGundam.glb?1557486209532" auto-rotate camera-controls alt="Zaku" background-color="#455A64"></model-viewer>    
-    </p>
-  
-    </div>  
-    <!-- include the Glitch button to show what the webpage is about and
-          to make it easier for folks to view source and remix -->
-    <div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>
-    <script src="https://button.glitch.me/button.js"></script>
+</head>
+
+<body>
+    <div id="card">
+        <!-- All you need to put beautiful, interactive 3D content on your site: -->
+        <model-viewer id="lamp"
+            src="https://cdn.glitch.com/21710700-a398-4f93-9a6c-eb0810904e74/industrial_lamp.gltf?v=1569485480008"
+            ios-src="https://cdn.glitch.com/21710700-a398-4f93-9a6c-eb0810904e74/industrial_floor_lamp.usdz?v=1569485305204"
+            alt="Tall Lamp" background-color="#eeeeee" shadow-intensity="1" camera-controls ar magic-leap
+            quick-look-browsers="safari chrome" ar-scale="fixed" resizable="false">
+        </model-viewer>
+        <section class="attribution">
+            <span>
+                <h1>Random Lamp</h1>
+            </span>
+        </section>
+    </div>
+    <footer>
+    </footer>
+
+
+    <!-- 💁 Include both scripts below to support all browsers! -->
+
+    <!-- Loads <model-viewer> for modern browsers: -->
     <script type="module" src="https://unpkg.com/@google/model-viewer@v0.6.0/dist/model-viewer.js">
 
     </script>
@@ -113,5 +78,6 @@
     <!-- Loads <model-viewer> for old browsers like IE11: -->
     <script nomodule src="https://unpkg.com/@google/model-viewer@v0.6.0/dist/model-viewer-legacy.js">
     </script>
-  </body>
+</body>
+
 </html>
